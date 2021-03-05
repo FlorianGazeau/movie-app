@@ -1,3 +1,6 @@
+import './sass/reset.scss'
+import './sass/global.scss'
+
 function App() {
   return (
     <div>
