@@ -1,10 +1,11 @@
 import './sass/reset.scss'
 import './sass/global.scss'
+import Sidebar from './components/Sidebar/Sidebar'
 
 function App() {
   return (
     <div>
-      <h1>Hey</h1>
+      <Sidebar/>
     </div>
   );
 }
