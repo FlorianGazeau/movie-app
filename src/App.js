@@ -1,11 +1,17 @@
+import Layout from './components/Layout/Layout'
+import Sidebar from './components/Sidebar/Sidebar'
+import Movies from './page/Movies/Movies'
+
 import './sass/reset.scss'
 import './sass/global.scss'
-import Sidebar from './components/Sidebar/Sidebar'
 
 function App() {
   return (
     <div>
       <Sidebar/>
+      <Layout>
+        <Movies/>
+      </Layout>
     </div>
   );
 }
