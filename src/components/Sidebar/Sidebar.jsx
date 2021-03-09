@@ -1,11 +1,12 @@
 import React from 'react'
-import Logo from '../../assets/movieapp.png'
+import { Link } from 'react-router-dom'
 
 import MovieIcon from '@material-ui/icons/Movie';
 import TvIcon from '@material-ui/icons/Tv';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
+import Logo from '../../assets/movieapp.png'
 import './Sidebar.scss'
 
 const Sidebar = () => {
@@ -22,19 +23,19 @@ const Sidebar = () => {
           <ul>
             <li className='active'>
               <MovieIcon />
-              <a className='nav__link' href="">Films</a>
+              <Link to="/" className='nav__link'>Films</Link>
             </li>
             <li>
               <TvIcon />
-              <a className='nav__link' href="">Séries</a>
+              <Link to="/" className='nav__link'>Séries</Link>
             </li>
             <li>
               <CalendarTodayIcon />
-              <a className='nav__link' href="">Calendrier</a>
+              <Link to="/" className='nav__link'>Calendrier</Link>
             </li>
             <li>
               <AccountCircleIcon />
-              <a className='nav__link' href="">Profil</a>
+              <Link to="/" className='nav__link'>Profil</Link>
             </li>
           </ul>
         </nav>
