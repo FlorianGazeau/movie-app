@@ -1,8 +1,73 @@
 .card {
   border-radius: 15px;
   max-width: 250px;
+  cursor: pointer;
 
   .thumbnail {
     width: 100%;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  // &:hover .card__wrapper::after {
+  //   font-family: "Font Awesome 5 Free";
+  //   font-weight: 900; 
+  //   content: "\f055";
+  //   display: block;
+  //   position: absolute;
+  //   bottom: 0;
+  //   right: 0;
+  //   z-index: 1;
+  //   color: white;
+  //   padding: 0 1em 1em 0;
+  // }
+  .btn-plus {
+    position: absolute;
+    bottom: -9999px;
+    right: -9999px;
+    z-index: 1;
+    color: white;
+    margin: 0 1em 1em 0;
+  }
+
+  &:hover .btn-plus {
+    bottom: 0;
+    right: 0;
+  }
+
+  .modal {
+    position: absolute;
+    bottom: -9999px;
+    right: -9999px;
+    margin: 0 1em 3em 0;
+    background: white;
+    width: 125px;
+    border-radius: 10px;
+  
+    &>div {
+      border-bottom: 1px solid rgb(224, 221, 221);
+    }
+
+    div:nth-child(3) {
+      border-bottom: none;
+    }
+
+    button {
+      background: none;
+      border: none;
+      text-align: center;
+      outline: none;
+      width: 100%;
+      padding: 0.5em 0;
+      cursor: pointer;
+      font-weight: 700;
+    }
+  }
+
+  .active.modal {
+    bottom: 0;
+    right: 0;
   }
 }
