@@ -15,12 +15,12 @@ const Sidebar = () => {
         <img src={Logo} alt="logo movieapp"/>
       </div>
       <div className='sidebar__content'>
-        <form action="" className='form-control'>
+        {/* <form action="" className='form-control'>
           <input type="text" placeholder="Search..."/>
-        </form>
+        </form> */}
         <nav className='sidebar__nav'>
           <ul>
-            <li>
+            <li className='active'>
               <MovieIcon />
               <a className='nav__link' href="">Films</a>
             </li>
@@ -34,7 +34,7 @@ const Sidebar = () => {
             </li>
             <li>
               <AccountCircleIcon />
-              <a className='nav_link' href="">Profil</a>
+              <a className='nav__link' href="">Profil</a>
             </li>
           </ul>
         </nav>
