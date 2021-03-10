@@ -1,3 +1,36 @@
+.movies {
+
+  padding: 2em;
+
+  h1 {
+    font-size: 3em;
+    font-weight: 700;
+    color: white;
+  }
+
+  .menu {
+    display: flex;
+    margin: 1em 0;
+
+    li {
+      padding: 1em;
+      font-weight: 800;
+    }
+
+    li:first-child {
+      padding-left: 0;
+    }
+
+    li:hover a {
+      border-bottom: 3px solid brown;
+    }
+
+    a {
+      font-size: 1.5em;
+    }
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

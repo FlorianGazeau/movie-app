@@ -2,9 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import MovieIcon from '@material-ui/icons/Movie';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HomeIcon from '@material-ui/icons/Home';
 import TvIcon from '@material-ui/icons/Tv';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import Logo from '../../assets/movieapp.png'
 import './Sidebar.scss'
@@ -21,21 +22,25 @@ const Sidebar = () => {
         </form> */}
         <nav className='sidebar__nav'>
           <ul>
-            <li className='active'>
+          <li className='active'>
+              <HomeIcon />
+              <Link to="/" className='nav__link'>Accueil</Link>
+            </li>
+            <li>
               <MovieIcon />
-              <Link to="/" className='nav__link'>Films</Link>
+              <Link to="/films" className='nav__link'>Films</Link>
             </li>
             <li>
               <TvIcon />
-              <Link to="/" className='nav__link'>Séries</Link>
+              <Link to="/series" className='nav__link'>Séries</Link>
             </li>
             <li>
               <CalendarTodayIcon />
-              <Link to="/" className='nav__link'>Calendrier</Link>
+              <Link to="/calendrier" className='nav__link'>Calendrier</Link>
             </li>
             <li>
               <AccountCircleIcon />
-              <Link to="/" className='nav__link'>Profil</Link>
+              <Link to="/profil" className='nav__link'>Profil</Link>
             </li>
           </ul>
         </nav>

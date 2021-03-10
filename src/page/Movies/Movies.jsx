@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import { Link, Route, Switch, useRouteMatch } from 'react-router-dom'
 import Card from '../../components/Card/Card'
 
 import './Movies.scss'
 
-const Movies = () => {
+const Watchlist = () => {
 
   const [Movies, setMovies] = useState()
 
@@ -18,12 +19,55 @@ const Movies = () => {
   }, [])
 
   return (
-    <div className='grid'>
-    {Movies && Movies.results.map((movie, i) => {
-      return (
-        <Card key={i} {...movie} />
-      )
-    })}
+      <div className='grid'>
+        {Movies && Movies.results.map((movie, i) => {
+          return (
+            <Card key={i} {...movie} />
+          )
+        })}
+      </div>
+  )
+}
+
+const Watched = () => {
+  return (
+    <div>
+      Watched
+    </div>
+  )
+}
+
+const ComingSoon = () => {
+  return (
+    <div>
+      ComingSoon
+    </div>
+  )
+}
+
+const Movies = () => {
+
+  let { path, url} = useRouteMatch()
+
+  return (
+    <div className="movies">
+      <h1>Films</h1>
+      <ul className="menu">
+        <li><Link to={`${url}/a-voir`}>A Voir</Link></li>
+        <li><Link to={`${url}/vu`}>Vu</Link></li>
+        <li><Link to={`${url}/a-venir`}>A Venir</Link></li>
+      </ul>
+      <Switch>
+        <Route exact path={`${path}/:a-voir`}>
+          <Watchlist />
+        </Route>
+        <Route exact path={`${path}/:a-venir`}>
+          <ComingSoon />
+        </Route>
+        <Route exact path={`${path}/:vu`}>
+          <Watched />
+        </Route>
+      </Switch>
     </div>
   )
 }
