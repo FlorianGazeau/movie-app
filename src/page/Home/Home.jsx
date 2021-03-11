@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Auth from '../../components/Auth/Auth'
 import Card from '../../components/Card/Card'
 
 import './Home.scss'
@@ -19,11 +20,12 @@ const Home = () => {
 
   return (
     <div className='grid'>
-    {Movies && Movies.results.map((movie, i) => {
+    {/* {Movies && Movies.results.map((movie, i) => {
       return (
         <Card key={i} {...movie} />
       )
-    })}
+    })} */}
+      <Auth />
     </div>
   )
 }
