@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Auth from '../../components/Auth/Auth'
 import Card from '../../components/Card/Card'
+import { useAuth } from '../../context/AuthContext'
 
 import './Home.scss'
 
 const Home = () => {
 
+  const {currentUser} = useAuth()
   const [Movies, setMovies] = useState()
 
   const fetchMovie = async () => {
@@ -19,13 +21,21 @@ const Home = () => {
   }, [])
 
   return (
-    <div className='grid'>
-    {/* {Movies && Movies.results.map((movie, i) => {
-      return (
-        <Card key={i} {...movie} />
-      )
-    })} */}
-      <Auth />
+    <div>
+      {currentUser ?
+      <div>
+        <h2>Bienvenue {currentUser.displayName}</h2>
+         <div className='grid'>
+          {Movies && Movies.results.map((movie, i) => {
+            return (
+              <Card key={i} {...movie} />
+            )
+          })}
+        </div>
+      </div>
+      :
+      <Auth />  
+    }
     </div>
   )
 }
