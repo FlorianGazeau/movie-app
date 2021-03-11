@@ -4,7 +4,7 @@ import {useAuth} from '../../context/AuthContext'
 
 const Auth = () => {
 
-  const { signInWithGoogle, currentUser, handleUserProfile } = useAuth()
+  const { signInWithGoogle, handleUserProfile } = useAuth()
 
   async function handleSignInWithGoogle() {
     const {user} = await signInWithGoogle()

@@ -21,7 +21,7 @@ const AuthProvider = ({children}) =>  {
   }
 
   const handleUserProfile = (user) => {
-    console.log(user.uid)
+    // console.log(user.uid)
 
     const { uid, displayName } = user
 
