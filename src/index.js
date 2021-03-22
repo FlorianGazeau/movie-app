@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './context/AuthContext';
+import MovieProvider from './context/MovieContext';
 
 ReactDOM.render(
   <AuthProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <MovieProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </MovieProvider>
   </AuthProvider>,
   document.getElementById('root')
 );

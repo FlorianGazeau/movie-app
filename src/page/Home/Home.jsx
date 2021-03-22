@@ -28,7 +28,7 @@ const Home = () => {
          <div className='grid'>
           {Movies && Movies.results.map((movie, i) => {
             return (
-              <Card key={i} {...movie} />
+              <Card key={i} movie={movie} type={"all"} />
             )
           })}
         </div>

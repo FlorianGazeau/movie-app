@@ -1,38 +1,36 @@
-import React, { useState, useEffect } from 'react'
+import React, {useEffect, useContext } from 'react'
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom'
 import Card from '../../components/Card/Card'
+import {addMovieToWatched, fetchMovieFromWatched, MovieContext} from '../../context/MovieContext'
 
 import './Movies.scss'
 
 const Watchlist = () => {
 
-  const [Movies, setMovies] = useState()
-
-  const fetchMovie = async () => {
-    const res = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=81aa61866a4b8deb760704a6e2f11e52&language=en-US&page=1')
-    const dataArray = await res.json()
-    setMovies(dataArray)
-  }
-
-  useEffect(() => {
-    fetchMovie()
-  }, [])
+  const { watchlist } = useContext(MovieContext)
 
   return (
-      <div className='grid'>
-        {Movies && Movies.results.map((movie, i) => {
-          return (
-            <Card key={i} {...movie} />
-          )
-        })}
-      </div>
+    <div className='grid'>
+      {watchlist && watchlist.map((movie, i) => {
+        return (
+          <Card key={i} movie={movie} type={"watchlist"} />
+        )
+      })}
+    </div>
   )
 }
 
 const Watched = () => {
+
+  const { watched } = useContext(MovieContext)
+
   return (
-    <div>
-      Watched
+    <div className='grid'>
+      {watched && watched.map((movie, i) => {
+        return (
+          <Card key={i} movie={movie} type={"watched"} />
+        )
+      })}
     </div>
   )
 }
