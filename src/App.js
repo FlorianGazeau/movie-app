@@ -6,6 +6,16 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './sass/reset.scss'
 import './sass/global.scss'
 import Home from './page/Home/Home'
+import PrivateRoute from './components/Route/PrivateRoute/PrivateRoute'
+
+
+const test = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
 
 function App() {
   return (
@@ -13,25 +23,15 @@ function App() {
       <Router>
         <Sidebar/>
         <Switch>
-          <Route exact path="/">
-            <Layout>
+          <Layout>
+            <Route exact path="/">
               <Home/>
-            </Layout>
-          </Route>
-          <Route path="/films">
-            <Layout>
-              <Movies/>
-            </Layout>
-          </Route>
-          <Route path="/series">
-            <Layout></Layout>
-          </Route>
-          <Route path="/calendrier">
-            <Layout></Layout>
-          </Route>
-          <Route path="/profil">
-            <Layout></Layout>
-          </Route>
+            </Route>
+            <PrivateRoute path="/films" component={Movies} />
+            <PrivateRoute path="/series" component={test} />
+            <PrivateRoute path="/calendrier" component={test} />
+            <PrivateRoute path="/profil" component={test} />
+          </Layout>
         </Switch>
       </Router>
     </div>
