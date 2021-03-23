@@ -1,4 +1,4 @@
-import React,  {useCallback, useEffect, useState} from 'react'
+import React,  {useEffect, useState} from 'react'
 
 import { firestore} from '../firebase/firebase'
 import firebase from 'firebase/app'
@@ -19,7 +19,13 @@ const MovieProvider = ({children}) => {
 
   const { currentUser} = useAuth()
 
-  
+  useEffect(() => {
+
+    if (currentUser) {
+      fetchMovieFromWatched()
+      fetchMovieFromWatchlist()
+    }
+  }, [])
   
   const addMovieToWatched = (props) => {
     var WatchedMovie = firestore.collection("users").doc(currentUser && currentUser.uid);
@@ -41,7 +47,7 @@ const MovieProvider = ({children}) => {
     setWatchlist(prevwatchlist => [...watchlist, props])
   }
   
-  const fetchMovieFromWatched = useCallback(() => {
+  const fetchMovieFromWatched = () => {
     var docRef = firestore.collection("users").doc(currentUser && currentUser.uid);
     
     docRef.get().then((doc) => {
@@ -55,9 +61,9 @@ const MovieProvider = ({children}) => {
     }).catch((error) => {
       console.log("Error getting document:", error);
     });
-  }, [currentUser])
+  }
   
-  const fetchMovieFromWatchlist = useCallback(() => {
+  const fetchMovieFromWatchlist = () => {
     var docRef = firestore.collection("users").doc(currentUser && currentUser.uid);
     
     docRef.get().then((doc) => {
@@ -71,7 +77,7 @@ const MovieProvider = ({children}) => {
     }).catch((error) => {
       console.log("Error getting document:", error);
     });
-  }, [currentUser])
+  }
   
   const removeMovieToWatched = (props) => {
     
@@ -107,11 +113,6 @@ const MovieProvider = ({children}) => {
     removeMovieToWatched(props)
     addMovieToWatchlist(props)
   }
-  
-  useEffect(() => {
-    fetchMovieFromWatched()
-    fetchMovieFromWatchlist()
-  }, [fetchMovieFromWatchlist, fetchMovieFromWatched])
 
   const value = {
     watched: watched,
