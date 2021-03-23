@@ -1,7 +1,7 @@
-import React, {useEffect, useContext } from 'react'
+import React, {useContext } from 'react'
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom'
 import Card from '../../components/Card/Card'
-import {addMovieToWatched, fetchMovieFromWatched, MovieContext} from '../../context/MovieContext'
+import {MovieContext} from '../../context/MovieContext'
 
 import './Movies.scss'
 
