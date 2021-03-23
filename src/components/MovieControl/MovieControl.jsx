@@ -3,23 +3,14 @@ import { MovieContext } from '../../context/MovieContext'
 
 const MovieControl = ({movie, type, show}) => {
 
-  const [ShowModal, setShowModal] = useState(show)
+  const { addMovieToWatched, addMovieToWatchlist, removeMovieToWatched, removeMovieToWatchlist, moveMovieToWatched, moveMovieToWatchlist, watched, watchlist } = useContext(MovieContext)
 
-  console.log(show)
-
-
-  const { addMovieToWatched, addMovieToWatchlist, removeMovieToWatched, watched, watchlist } = useContext(MovieContext)
-
-  const handleAction = () => {
-    setShowModal(prevShowModal => !prevShowModal)
-  }
 
   const watchedArray = watched.find(watchedMovie => watchedMovie.id === movie.id)
-  // const watchlistArray = watchlist.find(watchlistMovie => watchlistMovie.id === movie.id)
+  const watchlistArray = watchlist.find(watchlistMovie => watchlistMovie.id === movie.id)
 
   const watchedDisabled = watchedArray ? true : false
-  const watchlistDisabled = false
-// console.log(movie)
+  const watchlistDisabled = watchlistArray ? true : false
   return (
     <div className={show ? 'modal active' : 'modal'}>
 
@@ -32,15 +23,14 @@ const MovieControl = ({movie, type, show}) => {
 
       {type === "watched" && 
       <>
-        <div><button onClick={() => addMovieToWatchlist(movie)} disabled={watchlistDisabled}>A Voir</button></div>
+        <div><button onClick={() => moveMovieToWatchlist(movie)} disabled={watchlistDisabled}>A Voir</button></div>
         <div><button onClick={() => removeMovieToWatched(movie)}>Supprimer</button></div>
       </>}
       {type === "watchlist" && 
         <>
-          <div><button onClick={() => addMovieToWatched(movie)} disabled={watchedDisabled}>Vu</button></div>
-          <div><button onClick={() => removeMovieToWatched(movie)}>Supprimer</button></div>
+          <div><button onClick={() => moveMovieToWatched(movie)} disabled={watchedDisabled}>Vu</button></div>
+          <div><button onClick={() => removeMovieToWatchlist(movie)}>Supprimer</button></div>
         </>}
-    {/* // <div><button onClick={handleAction}>Fermer</button></div> */}
     </div>
   )
 }
