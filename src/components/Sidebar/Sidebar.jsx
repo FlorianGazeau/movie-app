@@ -28,7 +28,7 @@ const Sidebar = () => {
             </li>
             <li>
               <MovieIcon />
-              <Link to="/films" className='nav__link'>Films</Link>
+              <Link to="/films/a-voir" className='nav__link'>Films</Link>
             </li>
             <li>
               <TvIcon />
