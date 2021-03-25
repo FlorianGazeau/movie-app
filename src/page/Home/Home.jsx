@@ -11,7 +11,8 @@ const Home = () => {
   const [Movies, setMovies] = useState()
 
   const fetchMovie = async () => {
-    const res = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=81aa61866a4b8deb760704a6e2f11e52&language=en-US&page=1')
+    // const res = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=81aa61866a4b8deb760704a6e2f11e52&language=en-US&page=1')
+    const res = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=81aa61866a4b8deb760704a6e2f11e52&language=en-US&page=1')
     const dataArray = await res.json()
     setMovies(dataArray)
   }

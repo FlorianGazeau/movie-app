@@ -52,8 +52,8 @@ const Movies = () => {
     <div className="movies">
       <h1>Films</h1>
       <ul className="menu">
-        <li><Link to={`${url}/a-voir`}>A Voir <span>{watchlist.length}</span></Link></li>
-        <li><Link to={`${url}/vu`}>Vu <span>{watched.length}</span></Link></li>
+        <li><Link to={`${url}/a-voir`}>A Voir <span>{watchlist.length}</span> </Link></li>
+        <li><Link to={`${url}/vu`}>Vu  <span>{watched.length}</span></Link></li>
         <li><Link to={`${url}/a-venir`}>A Venir</Link></li>
       </ul>
       <Switch>
