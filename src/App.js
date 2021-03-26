@@ -7,7 +7,7 @@ import './sass/reset.scss'
 import './sass/global.scss'
 import Home from './page/Home/Home'
 import PrivateRoute from './components/Route/PrivateRoute/PrivateRoute'
-
+import Movie from './page/Movie/Movie'
 
 const test = () => {
   return (
@@ -31,6 +31,7 @@ function App() {
             <PrivateRoute path="/series" component={test} />
             <PrivateRoute path="/calendrier" component={test} />
             <PrivateRoute path="/profil" component={test} />
+            <PrivateRoute path="/film/:id" component={Movie} />
           </Layout>
         </Switch>
       </Router>
